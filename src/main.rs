@@ -6,8 +6,8 @@ use std::time::Duration;
 const PROGRAM: &str = env!("CARGO_PKG_NAME");
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 
-/// Default sleep interval expressed in seconds
-const DEFAULT_SLEEP_INTERVAL: u64 = 30;
+/// Default check interval expressed in seconds
+const DEFAULT_CHECK_INTERVAL: u64 = 60;
 
 fn main() {
     println!("{PROGRAM} {VERSION} - Minimalistic cross-platform mouse jiggler");
@@ -24,7 +24,7 @@ fn main() {
         .unwrap_or(PROGRAM);
 
     let interval = match args.len() {
-        1 => DEFAULT_INTERVAL,
+        1 => DEFAULT_CHECK_INTERVAL,
         2 => args[1].parse().unwrap_or(0),
         _ => 0,
     };
@@ -45,10 +45,10 @@ fn main() {
 /// Print usage information and exit
 fn usage(prog: &str) {
     println!("Usage:");
-    println!("$ {prog} <interval_in_secs> (default: 30s)");
+    println!("$ {prog} <check_interval_in_secs> (default: {DEFAULT_CHECK_INTERVAL}s)");
     println!("\nExamples:");
     println!("$ {prog}");
-    println!("$ {prog} 60");
+    println!("$ {prog} 30");
 
     process::exit(1);
 }

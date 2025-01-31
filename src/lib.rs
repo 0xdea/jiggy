@@ -63,33 +63,41 @@ use std::time::Duration;
 
 use mouse_rs::types::Point;
 use mouse_rs::Mouse;
+use thread::sleep;
 
-/// TODO Dispatch to function implementing the selected action
+/// Check mouse position every `interval` seconds; jiggle the mouse pointer and scroll the wheel
+/// if the position hasn't changed.
 pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
-    // TODO
-    println!("Duration: {interval:?}");
-
     let mouse = Mouse::new();
+    let mut old_position = mouse.get_position()?;
+    let is_same_pos = |p1: &Point, p2: &Point| p1.x == p2.x && p1.y == p2.y;
+
+    println!("[*] Using check interval: {interval:?}");
 
     loop {
-        let old_pos = mouse.get_position().expect("Failed to get position");
-        // dbg!(&old_pos);
-        let new_pos = Point {
-            x: old_pos.x + 1,
-            y: old_pos.y + 1,
-        };
-        mouse.move_to(new_pos.x, new_pos.y)?;
-        mouse.move_to(old_pos.x, old_pos.y)?;
-        mouse.wheel(-1)?;
-        mouse.wheel(1)?;
-        thread::sleep(interval);
+        let cur_position = mouse.get_position()?;
+        if is_same_pos(&cur_position, &old_position) {
+            jiggle_and_scroll(&mouse, &cur_position)?;
+        }
+        old_position = cur_position;
+        sleep(interval);
     }
+}
+
+/// Slightly jiggle the mouse pointer and scroll the mouse wheel. Return any errors.
+fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std::error::Error>> {
+    // Jiggle the mouse pointer
+    mouse.move_to(position.x + 1, position.y + 1)?;
+    mouse.move_to(position.x, position.y)?;
+
+    // Scroll the mouse wheel
+    mouse.wheel(-1)?;
+    mouse.wheel(1)?;
 
     Ok(())
 }
 
-// Other functions ...
-
+// TODO
 #[cfg(test)]
 mod tests {
     use super::*;
