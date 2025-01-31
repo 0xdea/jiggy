@@ -64,7 +64,7 @@ use mouse_rs::types::Point;
 use mouse_rs::Mouse;
 
 /// TODO Dispatch to function implementing the selected action
-pub fn run(interval: Duration) -> anyhow::Result<()> {
+pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
     // TODO
     println!("Duration: {interval:?}");
 
@@ -74,17 +74,14 @@ pub fn run(interval: Duration) -> anyhow::Result<()> {
         let old_pos = mouse.get_position().expect("Failed to get position");
         // dbg!(&old_pos);
         let new_pos = Point {
-            x: old_pos.x + 10,
-            y: old_pos.y + 10,
+            x: old_pos.x + 1,
+            y: old_pos.y + 1,
         };
-        mouse
-            .move_to(new_pos.x, new_pos.y)
-            .expect("Failed to move cursor");
-        thread::sleep(interval / 2);
-        mouse
-            .move_to(old_pos.x, old_pos.y)
-            .expect("Failed to move cursor");
-        thread::sleep(interval / 2);
+        mouse.move_to(new_pos.x, new_pos.y)?;
+        mouse.move_to(old_pos.x, old_pos.y)?;
+        mouse.wheel(-1)?;
+        mouse.wheel(1)?;
+        thread::sleep(interval);
     }
 
     Ok(())
