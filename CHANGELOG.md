@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First release to be published to [crates.io](https://crates.io/).
 
-[unreleased]: https://github.com/0xdea/jiggy/compare/v0.1.1...HEAD
+[unreleased]: https://github.com/0xdea/jiggy/compare/v0.1.0...HEAD
 
 [0.1.1]: https://github.com/0xdea/jiggy/compare/v0.1.0...v0.1.1
 

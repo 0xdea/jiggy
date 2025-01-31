@@ -120,7 +120,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn mouse_pointer_goes_back_to_the_old_position() {
+    fn mouse_pointer_goes_back_to_its_old_position() {
         let m = Mouse::new();
         let p1 = m.get_position().unwrap();
 

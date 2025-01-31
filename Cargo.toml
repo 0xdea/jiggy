@@ -6,7 +6,6 @@ edition = "2021"
 description = "Minimalistic cross-platform mouse jiggler written in Rust."
 homepage = "https://0xdeadbeef.info/"
 repository = "https://github.com/0xdea/jiggy"
-# documentation = "https://0xdeadbeef.info/jiggy/jiggy/"
 license = "MIT"
 keywords = ["mouse", "jiggler", "windows", "linux", "macos"]
 categories = ["command-line-utilities"]
@@ -16,28 +15,18 @@ exclude = [".cargo/*", ".github/*", ".img/*", "tests/*"]
 mouse-rs = "0.4"
 spinners = "4.1"
 
-# [build-dependencies]
-
-# [[test]]
-# name = "tests"
-# path = "tests/main.rs"
-# harness = false
-
 [lints.clippy]
 all = { level = "warn", priority = -1 }
 pedantic = { level = "warn", priority = -1 }
 nursery = { level = "warn", priority = -1 }
 cargo = { level = "warn", priority = -1 }
 missing_errors_doc = "allow"
-# multiple_crate_versions = "allow"
-# significant_drop_tightening = "allow"
-# doc_markdown = "allow"
-# wildcard_imports = "allow"
+multiple_crate_versions = "allow"
 
 [profile.release]
 # see https://github.com/johnthagen/min-sized-rust
 strip = true
 opt-level = "z"
 lto = true
-codegen-units = 1
+# codegen-units = 1
 panic = "abort"
