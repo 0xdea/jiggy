@@ -45,7 +45,7 @@ fn main() {
 /// Print usage information and exit
 fn usage(prog: &str) {
     println!("Usage:");
-    println!("$ {prog} <check_interval_in_secs> (default: {DEFAULT_CHECK_INTERVAL}s)");
+    println!("$ {prog} [check_interval_in_secs] (default: {DEFAULT_CHECK_INTERVAL}s)");
     println!("\nExamples:");
     println!("$ {prog}");
     println!("$ {prog} 30");

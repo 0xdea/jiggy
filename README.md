@@ -83,7 +83,7 @@ TODO - linux (and maybe others) specific lib requirements (libxdo-devel and simi
 ## Usage
 
 ```sh
-jiggy <check_interval_in_secs>
+jiggy [check_interval_in_secs]
 ```
 
 *Note: on macOS, you might need to grant Accessibility privileges to your terminal application.*
