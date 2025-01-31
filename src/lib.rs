@@ -14,7 +14,7 @@
 //!
 //! ## Features
 //! * Minimalistic (but effective) mouse jiggler, with no setup needed.
-//! * Mouse jiggling won't interfere with your regular activities.
+//! * As implemented, mouse jiggling won't interfere with your regular activities.
 //! * Thanks to mouse wheel scroll, the new Microsoft Teams should not display you as away.
 //! * Cross-platform support for macOS, Windows, and Linux.
 //!
@@ -29,7 +29,6 @@
 //! ```sh
 //! $ cargo install jiggy
 //! ```
-//!
 //! *Note: if run into problems building on Linux, you need to install `libxdo-dev`.*
 //!
 //! ## Compiling
@@ -65,6 +64,7 @@
 //! ```sh
 //! jiggy <check_interval_in_secs>
 //! ```
+//! *Note: on macOS, you might need to grant Accessibility privileges to your terminal application.*
 //!
 //! ## Tested on
 //! * macOS Sequoia 15.2
@@ -82,8 +82,8 @@ use mouse_rs::types::Point;
 use mouse_rs::Mouse;
 use spinners::{Spinner, Spinners};
 
-/// Check mouse position every `interval` seconds; jiggle the mouse pointer and scroll the wheel
-/// if the position hasn't changed.
+/// Check the mouse position every `interval` seconds; jiggle the mouse pointer and scroll the
+/// wheel if the position hasn't changed.
 pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
@@ -102,7 +102,7 @@ pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
     }
 }
 
-/// Slightly jiggle the mouse pointer and scroll the mouse wheel. Return any errors.
+/// Slightly jiggle the mouse pointer and scroll the mouse wheel.
 fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std::error::Error>> {
     // Jiggle the mouse pointer
     mouse.move_to(position.x + 1, position.y + 1)?;
@@ -115,13 +115,19 @@ fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std:
     Ok(())
 }
 
-// TODO
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+    fn mouse_pointer_goes_back_to_the_old_position() {
+        let m = Mouse::new();
+        let p1 = m.get_position().unwrap();
+
+        jiggle_and_scroll(&m, &p1).unwrap();
+
+        let p2 = m.get_position().unwrap();
+
+        assert!(p1.x == p2.x && p1.y == p2.y);
     }
 }

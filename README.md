@@ -25,7 +25,7 @@ from home".*
 ## Features
 
 * Minimalistic (but effective) mouse jiggler, with no setup needed.
-* Mouse jiggling won't interfere with your regular activities.
+* As implemented, mouse jiggling won't interfere with your regular activities.
 * Thanks to mouse wheel scroll, the new Microsoft Teams should not display you as away.
 * Cross-platform support for macOS, Windows, and Linux.
 
@@ -85,6 +85,8 @@ TODO - linux (and maybe others) specific lib requirements (libxdo-devel and simi
 ```sh
 jiggy <check_interval_in_secs>
 ```
+
+*Note: on macOS, you might need to grant Accessibility privileges to your terminal application.*
 
 ## Tested on
 
