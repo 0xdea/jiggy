@@ -89,7 +89,7 @@ pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
     let mut old_position = mouse.get_position()?;
     let is_same_pos = |p1: &Point, p2: &Point| p1.x == p2.x && p1.y == p2.y;
 
-    println!("[*] Using check interval: {interval:?}");
+    println!("⏰  Using check interval: {interval:?}");
     let _sp = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".into());
 
     loop {
