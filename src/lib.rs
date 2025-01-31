@@ -1,5 +1,5 @@
 //!
-//! jiggler - Minimalistic cross-platform mouse jiggler
+//! jiggy - Minimalistic cross-platform mouse jiggler
 //! Copyright (c) 2025 Marco Ivaldi <raptor@0xdeadbeef.info>
 //!
 //! > "If I wanted the government in my house I'd buy an Alexa."
@@ -18,13 +18,13 @@
 //! * TODO
 //!
 //! ## Installing
-//! The easiest way to get the latest release is via [crates.io](https://crates.io/crates/jiggler):
+//! The easiest way to get the latest release is via [crates.io](https://crates.io/crates/jiggy):
 //! ```sh
 //! TODO
 //! ```
 //!
 //! ## Compiling
-//! Alternatively, you can build from [source](https://github.com/0xdea/jiggler):
+//! Alternatively, you can build from [source](https://github.com/0xdea/jiggy):
 //! ```sh
 //! TODO
 //! ```
@@ -49,13 +49,13 @@
 //! * TODO
 //!
 //! ## Changelog
-//! * <https://github.com/0xdea/jiggler/blob/master/CHANGELOG.md>
+//! * <https://github.com/0xdea/jiggy/blob/master/CHANGELOG.md>
 //!
 //! ## TODO
 //! * TODO
 //!
 
-#![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggler/master/.img/logo.png")]
+#![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggy/master/.img/logo.png")]
 
 use std::thread;
 use std::time::Duration;
