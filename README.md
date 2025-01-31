@@ -16,6 +16,7 @@
 
 TODO
 
+TODO - record a short animated gif demo if possible and place it here
 ![](https://raw.githubusercontent.com/0xdea/jiggler/master/.img/screen01.png)
 
 ## Features

@@ -59,13 +59,15 @@
 
 use std::time::Duration;
 
-// const NAME: type = ...;
+use mouse_rs::Mouse;
 
-// static NAME: type = ...;
-
-/// Dispatch to function implementing the selected action
+/// TODO Dispatch to function implementing the selected action
 pub fn run(interval: Duration) -> anyhow::Result<()> {
+    // TODO
     println!("Duration: {interval:?}");
+
+    let mouse = Mouse::new();
+
     Ok(())
 }
 
