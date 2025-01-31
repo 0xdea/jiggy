@@ -16,22 +16,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
-      - name: prepare IDA SDK
-        env:
-          IDASDK90_URL: ${{ secrets.IDASDK90_URL }}
-          IDASDK90_PASSWORD: ${{ secrets.IDASDK90_PASSWORD }}
-        run: |
-          curl -o "${{ runner.temp }}/idasdk90.zip" -L "$IDASDK90_URL"
-          unzip -d "${{ runner.temp }}" -P "$IDASDK90_PASSWORD" "${{ runner.temp }}/idasdk90.zip"
       - name: rustfmt
         run: cargo fmt --check
       - name: clippy
-        env:
-          IDASDKDIR: "${{ runner.temp }}/idasdk90"
         run: cargo clippy -- -D warnings
+      - name: test
+        run: cargo test
       - name: build
-        env:
-          IDASDKDIR: "${{ runner.temp }}/idasdk90"
         run: cargo build
 
   build-macos:
@@ -41,22 +32,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
-      - name: prepare IDA SDK
-        env:
-          IDASDK90_URL: ${{ secrets.IDASDK90_URL }}
-          IDASDK90_PASSWORD: ${{ secrets.IDASDK90_PASSWORD }}
-        run: |
-          curl -o "${{ runner.temp }}/idasdk90.zip" -L "$IDASDK90_URL"
-          unzip -d "${{ runner.temp }}" -P "$IDASDK90_PASSWORD" "${{ runner.temp }}/idasdk90.zip"
       - name: rustfmt
         run: cargo fmt --check
       - name: clippy
-        env:
-          IDASDKDIR: "${{ runner.temp }}/idasdk90"
         run: cargo clippy -- -D warnings
+      - name: test
+        run: cargo test
       - name: build
-        env:
-          IDASDKDIR: "${{ runner.temp }}/idasdk90"
         run: cargo build
 
   build-windows:
@@ -73,20 +55,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
-      - name: prepare IDA SDK
-        env:
-          IDASDK90_URL: ${{ secrets.IDASDK90_URL }}
-          IDASDK90_PASSWORD: ${{ secrets.IDASDK90_PASSWORD }}
-        run: |
-          curl -o "${{ runner.temp }}/idasdk90.zip" -L $env:IDASDK90_URL
-          unzip -d "${{ runner.temp }}" -P $env:IDASDK90_PASSWORD "${{ runner.temp }}/idasdk90.zip"
       - name: rustfmt
         run: cargo fmt --check
       - name: clippy
-        env:
-          IDASDKDIR: "${{ runner.temp }}/idasdk90"
         run: cargo clippy -- -D warnings
+      - name: test
+        run: cargo test
       - name: build
-        env:
-          IDASDKDIR: "${{ runner.temp }}/idasdk90"
         run: cargo build
