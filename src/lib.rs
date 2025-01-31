@@ -14,6 +14,7 @@
 //!
 //! ## Features
 //! * Minimalistic (but effective) mouse jiggler, with no setup needed.
+//! * Mouse jiggling won't interfere with your regular activities.
 //! * Thanks to mouse wheel scroll, the new Microsoft Teams should not display you as away.
 //! * Cross-platform support for macOS, Windows, and Linux.
 //!
@@ -67,7 +68,6 @@
 //!
 //! ## Changelog
 //! * <https://github.com/0xdea/jiggy/blob/master/CHANGELOG.md>
-//!
 //!
 
 #![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggy/master/.img/logo.png")]
