@@ -16,6 +16,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
+      - name: dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxdo-dev
       - name: rustfmt
         run: cargo fmt --check
       - name: clippy
