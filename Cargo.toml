@@ -6,13 +6,14 @@ edition = "2021"
 description = "Simple cross-platform mouse jiggler written in Rust."
 homepage = "https://0xdeadbeef.info/"
 repository = "https://github.com/0xdea/jiggler"
-documentation = "https://0xdeadbeef.info/jiggler/jiggler/"
+# documentation = "https://0xdeadbeef.info/jiggler/jiggler/"
 license = "MIT"
 keywords = ["mouse", "jiggler", "windows", "linux", "macos"]
 categories = ["command-line-utilities"]
 exclude = [".cargo/*", ".github/*", ".img/*", "tests/*"]
 
 [dependencies]
+anyhow = "1.0"
 mouse-rs = "0.4"
 
 # [build-dependencies]
@@ -27,7 +28,7 @@ all = { level = "warn", priority = -1 }
 pedantic = { level = "warn", priority = -1 }
 nursery = { level = "warn", priority = -1 }
 cargo = { level = "warn", priority = -1 }
-# missing_errors_doc = "allow"
+missing_errors_doc = "allow"
 # multiple_crate_versions = "allow"
 # significant_drop_tightening = "allow"
 # doc_markdown = "allow"

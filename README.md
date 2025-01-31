@@ -10,9 +10,9 @@
 [![build](https://github.com/0xdea/jiggler/actions/workflows/build.yml/badge.svg)](https://github.com/0xdea/jiggler/actions/workflows/build.yml)
 [![doc](https://github.com/0xdea/jiggler/actions/workflows/doc.yml/badge.svg)](https://github.com/0xdea/jiggler/actions/workflows/doc.yml)
 
-> "It's important to be quotable."
+> "If I wanted the government in my house I'd buy an Alexa."
 >
-> -- Halvar Flake
+> -- Rick Sanchez
 
 TODO
 
@@ -20,7 +20,7 @@ TODO
 
 ## Features
 
-* TODO
+* TODO - minimalistic, simple setup, cross-platform
 
 ## Blog post
 
@@ -43,7 +43,7 @@ TODO
 Alternatively, you can build from [source](https://github.com/0xdea/jiggler):
 
 ```sh
-TODO
+TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
 ```
 
 ## Usage

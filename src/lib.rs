@@ -1,15 +1,15 @@
 //!
-//! jiggler - Simple cross-platform mouse jiggler written in Rust
+//! jiggler - Minimalistic cross-platform mouse jiggler
 //! Copyright (c) 2025 Marco Ivaldi <raptor@0xdeadbeef.info>
 //!
-//! > "It's important to be quotable."  
-//! >  
-//! > -- Halvar Flake  
+//! > "If I wanted the government in my house I'd buy an Alexa."
+//! >
+//! > -- Rick Sanchez
 //!
 //! TODO
 //!
 //! ## Features
-//! * TODO
+//! * TODO - minimalistic, simple setup, cross-platform
 //!
 //! ## Blog post
 //! * TODO
@@ -57,26 +57,15 @@
 
 #![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggler/master/.img/logo.png")]
 
-// Standard library imports
-use std::error::Error;
-
-// External crate imports
-// use ...;
-
-// Internal imports
-// use ...;
+use std::time::Duration;
 
 // const NAME: type = ...;
 
 // static NAME: type = ...;
 
 /// Dispatch to function implementing the selected action
-pub fn run(action: &str) -> Result<(), Box<dyn Error>> {
-    match action {
-        "action1" => func1()?,
-        _ => func2(action)?,
-    }
-
+pub fn run(interval: Duration) -> anyhow::Result<()> {
+    println!("Duration: {interval:?}");
     Ok(())
 }
 
