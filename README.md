@@ -44,7 +44,7 @@ The easiest way to get the latest release is via [crates.io](https://crates.io/c
 $ cargo install jiggy
 ```
 
-TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
+*Note: if run into problems building on Linux, you need to install `libxdo-dev`.*
 
 ## Compiling
 
@@ -77,6 +77,8 @@ $ cargo build --release
 
 TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
 ```
+
+*Note: if run into problems building on Linux, you need to install `libxdo-dev`.*
 
 ## Usage
 

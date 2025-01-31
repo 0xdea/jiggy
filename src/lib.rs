@@ -30,6 +30,8 @@
 //! $ cargo install jiggy
 //! ```
 //!
+//! *Note: if run into problems building on Linux, you need to install `libxdo-dev`.*
+//!
 //! ## Compiling
 //! Alternatively, you can build from [source](https://github.com/0xdea/jiggy).
 //!
@@ -57,6 +59,7 @@
 //!
 //! TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
 //! ```
+//! *Note: if run into problems building on Linux, you need to install `libxdo-dev`.*
 //!
 //! ## Usage
 //! ```sh
