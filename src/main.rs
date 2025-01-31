@@ -6,8 +6,8 @@ use std::time::Duration;
 const PROGRAM: &str = env!("CARGO_PKG_NAME");
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 
-/// Default inaction interval expressed in seconds
-const DEFAULT_INTERVAL: u64 = 30;
+/// Default sleep interval expressed in seconds
+const DEFAULT_SLEEP_INTERVAL: u64 = 30;
 
 fn main() {
     println!("{PROGRAM} {VERSION} - Minimalistic cross-platform mouse jiggler");
@@ -33,7 +33,7 @@ fn main() {
     }
 
     // Let's do it
-    match jiggler::run(Duration::from_secs(interval)) {
+    match jiggy::run(Duration::from_secs(interval)) {
         Ok(()) => (),
         Err(err) => {
             eprintln!("[!] Error: {err}");
