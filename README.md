@@ -17,7 +17,7 @@
 Jiggy is a minimalistic cross-platform mouse jiggler written in Rust. This may be useful for "reasons".
 
 *Disclaimer: I'm not responsible for any problems that might arise due to using this program to pretend you're "working
-from home"*
+from home".*
 
 ![](https://raw.githubusercontent.com/0xdea/jiggy/master/.img/working-from-home.jpg)
 
