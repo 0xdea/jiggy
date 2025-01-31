@@ -57,8 +57,10 @@
 
 #![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggler/master/.img/logo.png")]
 
+use std::thread;
 use std::time::Duration;
 
+use mouse_rs::types::Point;
 use mouse_rs::Mouse;
 
 /// TODO Dispatch to function implementing the selected action
@@ -67,6 +69,22 @@ pub fn run(interval: Duration) -> anyhow::Result<()> {
     println!("Duration: {interval:?}");
 
     let mouse = Mouse::new();
+
+    loop {
+        let old_pos = mouse.get_position().expect("Failed to get position");
+        // dbg!(&old_pos);
+        let new_pos = Point {
+            x: old_pos.x + 1,
+            y: old_pos.y + 1,
+        };
+        mouse
+            .move_to(new_pos.x, new_pos.y)
+            .expect("Failed to move cursor");
+        mouse
+            .move_to(old_pos.x, old_pos.y)
+            .expect("Failed to move cursor");
+        thread::sleep(interval);
+    }
 
     Ok(())
 }
