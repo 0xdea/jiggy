@@ -13,10 +13,15 @@
 //! pretend you're "working from home".*
 //!
 //! ## Features
-//! * TODO - minimalistic, simple setup, teams/wheel, cross-platform
+//! * Minimalistic (but effective) mouse jiggler, with no setup needed.
+//! * Thanks to mouse wheel scroll, the new Microsoft Teams should not display you as away.
+//! * Cross-platform support for macOS, Windows, and Linux.
 //!
 //! ## See also
-//! * TODO
+//! * <https://github.com/arkane-systems/mousejiggler>
+//! * <https://lib.rs/crates/jiggle>
+//! * <https://lib.rs/crates/stayawake>
+//! * <https://lib.rs/crates/meth>
 //!
 //! ## Installing
 //! The easiest way to get the latest release is via [crates.io](https://crates.io/crates/jiggy):
@@ -54,28 +59,15 @@
 //!
 //! ## Usage
 //! ```sh
-//! TODO
+//! jiggy <check_interval_in_secs>
 //! ```
 //!
-//! ## Examples
-//! TODO:
-//! ```sh
-//! TODO
-//! ```
-//!
-//! TODO:
-//! ```sh
-//! TODO
-//! ```
-//!
-//! ## Tested on/with
-//! * TODO
+//! ## Tested on
+//! * macOS Sequoia 15.2
 //!
 //! ## Changelog
 //! * <https://github.com/0xdea/jiggy/blob/master/CHANGELOG.md>
 //!
-//! ## TODO
-//! * TODO
 //!
 
 #![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggy/master/.img/logo.png")]

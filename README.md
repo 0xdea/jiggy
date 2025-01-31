@@ -24,10 +24,13 @@ from home".*
 
 ## Features
 
-* TODO - minimalistic, simple setup, cross-platform
+* Minimalistic (but effective) mouse jiggler, with no setup needed.
+* Thanks to mouse wheel scroll, the new Microsoft Teams should not display you as away.
+* Cross-platform support for macOS, Windows, and Linux.
 
 ## See also
 
+* <https://github.com/arkane-systems/mousejiggler>
 * <https://lib.rs/crates/jiggle>
 * <https://lib.rs/crates/stayawake>
 * <https://lib.rs/crates/meth>
@@ -77,31 +80,13 @@ TODO - linux (and maybe others) specific lib requirements (libxdo-devel and simi
 ## Usage
 
 ```sh
-TODO
+jiggy <check_interval_in_secs>
 ```
 
-## Examples
+## Tested on
 
-TODO:
-
-```sh
-TODO
-```
-
-TODO:
-
-```sh
-TODO
-```
-
-## Tested on/with
-
-* TODO
+* macOS Sequoia 15.2
 
 ## Changelog
 
 * [CHANGELOG.md](CHANGELOG.md)
-
-## TODO
-
-* TODO
