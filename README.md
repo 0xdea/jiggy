@@ -14,7 +14,8 @@
 >
 > -- Rick Sanchez
 
-Jiggy is a minimalistic cross-platform mouse jiggler written in Rust. This may be useful for "reasons".
+Jiggy is a minimalistic (but effective) cross-platform mouse jiggler written in Rust. It might be useful for a number of
+"reasons".
 
 *Disclaimer: I'm not responsible for any problems that might arise due to using this program to pretend you're "working
 from home".*
@@ -25,13 +26,11 @@ from home".*
 
 * TODO - minimalistic, simple setup, cross-platform
 
-## Blog post
-
-* TODO
-
 ## See also
 
-* TODO
+* <https://lib.rs/crates/jiggle>
+* <https://lib.rs/crates/stayawake>
+* <https://lib.rs/crates/meth>
 
 ## Installing
 
