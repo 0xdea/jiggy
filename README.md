@@ -37,14 +37,40 @@ from home".*
 The easiest way to get the latest release is via [crates.io](https://crates.io/crates/jiggy):
 
 ```sh
-TODO
+$ cargo install jiggy
 ```
+
+TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
 
 ## Compiling
 
-Alternatively, you can build from [source](https://github.com/0xdea/jiggy):
+Alternatively, you can build from [source](https://github.com/0xdea/jiggy).
+
+On macOS:
 
 ```sh
+$ git clone https://github.com/0xdea/jiggy
+$ cd jiggy
+$ cargo build --release
+```
+
+On Windows:
+
+```sh
+$ git clone https://github.com/0xdea/jiggy
+$ cd jiggy
+$ cargo build --release
+
+TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
+```
+
+On Linux:
+
+```sh
+$ git clone https://github.com/0xdea/jiggy
+$ cd jiggy
+$ cargo build --release
+
 TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
 ```
 

@@ -21,13 +21,35 @@
 //! ## Installing
 //! The easiest way to get the latest release is via [crates.io](https://crates.io/crates/jiggy):
 //! ```sh
-//! TODO
+//! $ cargo install jiggy
 //! ```
 //!
 //! ## Compiling
-//! Alternatively, you can build from [source](https://github.com/0xdea/jiggy):
+//! Alternatively, you can build from [source](https://github.com/0xdea/jiggy).
+//!
+//! On macOS:
 //! ```sh
-//! TODO
+//! $ git clone https://github.com/0xdea/jiggy
+//! $ cd jiggy
+//! $ cargo build --release
+//! ```
+//!
+//! On Windows:
+//! ```sh
+//! $ git clone https://github.com/0xdea/jiggy
+//! $ cd jiggy
+//! $ cargo build --release
+//!
+//! TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
+//! ```
+//!
+//! On Linux:
+//! ```sh
+//! $ git clone https://github.com/0xdea/jiggy
+//! $ cd jiggy
+//! $ cargo build --release
+//!
+//! TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
 //! ```
 //!
 //! ## Usage
@@ -58,12 +80,12 @@
 
 #![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggy/master/.img/logo.png")]
 
-use std::thread;
+use std::thread::sleep;
 use std::time::Duration;
 
 use mouse_rs::types::Point;
 use mouse_rs::Mouse;
-use thread::sleep;
+use spinners::{Spinner, Spinners};
 
 /// Check mouse position every `interval` seconds; jiggle the mouse pointer and scroll the wheel
 /// if the position hasn't changed.
@@ -73,6 +95,7 @@ pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
     let is_same_pos = |p1: &Point, p2: &Point| p1.x == p2.x && p1.y == p2.y;
 
     println!("[*] Using check interval: {interval:?}");
+    let _sp = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".into());
 
     loop {
         let cur_position = mouse.get_position()?;
@@ -91,8 +114,8 @@ fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std:
     mouse.move_to(position.x, position.y)?;
 
     // Scroll the mouse wheel
-    mouse.wheel(-1)?;
     mouse.wheel(1)?;
+    mouse.wheel(-1)?;
 
     Ok(())
 }
