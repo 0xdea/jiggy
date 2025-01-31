@@ -74,16 +74,17 @@ pub fn run(interval: Duration) -> anyhow::Result<()> {
         let old_pos = mouse.get_position().expect("Failed to get position");
         // dbg!(&old_pos);
         let new_pos = Point {
-            x: old_pos.x + 1,
-            y: old_pos.y + 1,
+            x: old_pos.x + 10,
+            y: old_pos.y + 10,
         };
         mouse
             .move_to(new_pos.x, new_pos.y)
             .expect("Failed to move cursor");
+        thread::sleep(interval / 2);
         mouse
             .move_to(old_pos.x, old_pos.y)
             .expect("Failed to move cursor");
-        thread::sleep(interval);
+        thread::sleep(interval / 2);
     }
 
     Ok(())
