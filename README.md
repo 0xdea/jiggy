@@ -41,41 +41,19 @@ The easiest way to get the latest release is via [crates.io](https://crates.io/c
 $ cargo install jiggy
 ```
 
-*Note: if run into problems building on Linux, you need to install `libxdo-dev`.*
+*Note: if run into problems building on Linux, you need to install `libxdo-dev` or equivalent package.*
 
 ## Compiling
 
 Alternatively, you can build from [source](https://github.com/0xdea/jiggy).
 
-On macOS:
-
 ```sh
 $ git clone https://github.com/0xdea/jiggy
 $ cd jiggy
 $ cargo build --release
 ```
 
-On Windows:
-
-```sh
-$ git clone https://github.com/0xdea/jiggy
-$ cd jiggy
-$ cargo build --release
-
-TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
-```
-
-On Linux:
-
-```sh
-$ git clone https://github.com/0xdea/jiggy
-$ cd jiggy
-$ cargo build --release
-
-TODO - linux (and maybe others) specific lib requirements (libxdo-devel and similar)
-```
-
-*Note: if run into problems building on Linux, you need to install `libxdo-dev`.*
+*Note: if run into problems building on Linux, you need to install `libxdo-dev` or equivalent package.*
 
 ## Usage
 
@@ -87,7 +65,8 @@ jiggy [check_interval_in_secs]
 
 ## Tested on
 
-* macOS Sequoia 15.2
+* Apple macOS Sequoia 15.2
+* Microsoft Windows 11 23H2
 
 ## Changelog
 
