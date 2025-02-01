@@ -8,7 +8,6 @@
 [![](https://img.shields.io/badge/twitter-%400xdea-blue.svg)](https://twitter.com/0xdea)
 [![](https://img.shields.io/badge/mastodon-%40raptor-purple.svg)](https://infosec.exchange/@raptor)
 [![build](https://github.com/0xdea/jiggy/actions/workflows/build.yml/badge.svg)](https://github.com/0xdea/jiggy/actions/workflows/build.yml)
-[![doc](https://github.com/0xdea/jiggy/actions/workflows/doc.yml/badge.svg)](https://github.com/0xdea/jiggy/actions/workflows/doc.yml)
 
 > "If I wanted the government in my house I'd buy an Alexa."
 >
