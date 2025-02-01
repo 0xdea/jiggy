@@ -1,8 +1,6 @@
 # jiggy
 
 [![](https://img.shields.io/github/stars/0xdea/jiggy.svg?style=flat&color=yellow)](https://github.com/0xdea/jiggy)
-[![](https://img.shields.io/github/forks/0xdea/jiggy.svg?style=flat&color=green)](https://github.com/0xdea/jiggy)
-[![](https://img.shields.io/github/watchers/0xdea/jiggy.svg?style=flat&color=red)](https://github.com/0xdea/jiggy)
 [![](https://img.shields.io/crates/v/jiggy?style=flat&color=green)](https://crates.io/crates/jiggy)
 [![](https://img.shields.io/crates/d/jiggy?style=flat&color=red)](https://crates.io/crates/jiggy)
 [![](https://img.shields.io/badge/twitter-%400xdea-blue.svg)](https://twitter.com/0xdea)
