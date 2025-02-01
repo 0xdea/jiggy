@@ -48,7 +48,9 @@
 //! *Note: on macOS, you might need to grant Accessibility privileges to your terminal application.*
 //!
 //! ## Tested on
-//! * macOS Sequoia 15.2
+//! * Apple macOS Sequoia 15.2
+//! * Microsoft Windows 11 23H2
+//! * Ubuntu Linux 24.04.1 LTS
 //!
 //! ## Changelog
 //! * <https://github.com/0xdea/jiggy/blob/master/CHANGELOG.md>

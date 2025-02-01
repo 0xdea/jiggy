@@ -67,6 +67,7 @@ jiggy [check_interval_in_secs]
 
 * Apple macOS Sequoia 15.2
 * Microsoft Windows 11 23H2
+* Ubuntu Linux 24.04.1 LTS
 
 ## Changelog
 
