@@ -45,7 +45,7 @@ $ cargo install jiggy
 
 ## Compiling
 
-Alternatively, you can build from [source](https://github.com/0xdea/jiggy).
+Alternatively, you can build from [source](https://github.com/0xdea/jiggy):
 
 ```sh
 $ git clone https://github.com/0xdea/jiggy

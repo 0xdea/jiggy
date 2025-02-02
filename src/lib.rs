@@ -32,8 +32,7 @@
 //! *Note: if run into problems building on Linux, you need to install `libxdo-dev` or equivalent package.*
 //!
 //! ## Compiling
-//! Alternatively, you can build from [source](https://github.com/0xdea/jiggy).
-//!
+//! Alternatively, you can build from [source](https://github.com/0xdea/jiggy):
 //! ```sh
 // $ git clone https://github.com/0xdea/jiggy
 // $ cd jiggy
