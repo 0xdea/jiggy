@@ -75,7 +75,7 @@ pub enum Void {}
 pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
-    let is_same_pos = |p1: &Point, p2: &Point| p1.x == p2.x && p1.y == p2.y;
+    let is_same_pos = |p: &Point, q: &Point| p.x == q.x && p.y == q.y;
 
     println!("⏰  Using check interval: {interval:?}");
     let mut sp = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".into());
@@ -115,12 +115,12 @@ mod tests {
     #[test]
     fn mouse_pointer_goes_back_to_its_old_position() {
         let m = Mouse::new();
-        let p1 = m.get_position().unwrap();
+        let p = m.get_position().unwrap();
 
-        jiggle_and_scroll(&m, &p1).unwrap();
+        jiggle_and_scroll(&m, &p).unwrap();
 
-        let p2 = m.get_position().unwrap();
+        let q = m.get_position().unwrap();
 
-        assert!(p1.x == p2.x && p1.y == p2.y);
+        assert!(p.x == q.x && p.y == q.y);
     }
 }
