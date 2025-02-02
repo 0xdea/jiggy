@@ -65,9 +65,14 @@ use mouse_rs::types::Point;
 use mouse_rs::Mouse;
 use spinners::{Spinner, Spinners};
 
+/// Empty enum to emulate the never type `!` and avoid using `#![feature(never_type)]`. See:
+/// * <https://rust-reference.irust.net/en-us/types/never.html>
+/// * <https://github.com/rust-lang/rust/issues/35121>
+pub enum Void {}
+
 /// Check the mouse position every `interval` seconds; jiggle the mouse pointer and scroll the
 /// wheel if the position hasn't changed.
-pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
+pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
     let is_same_pos = |p1: &Point, p2: &Point| p1.x == p2.x && p1.y == p2.y;

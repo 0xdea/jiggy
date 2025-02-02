@@ -34,7 +34,7 @@ fn main() {
 
     // Let's do it
     match jiggy::run(Duration::from_secs(interval)) {
-        Ok(()) => (),
+        Ok(_) => (),
         Err(err) => {
             eprintln!("[!] Error: {err}");
             process::exit(1);
