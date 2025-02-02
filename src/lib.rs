@@ -65,7 +65,9 @@ use mouse_rs::types::Point;
 use mouse_rs::Mouse;
 use spinners::{Spinner, Spinners};
 
-/// Empty enum to emulate the never type `!` and avoid using `#![feature(never_type)]`. See:
+/// Empty enum to emulate the never type `!` and avoid using `#![feature(never_type)]`.
+///
+/// For additional information, see:
 /// * <https://rust-reference.irust.net/en-us/types/never.html>
 /// * <https://github.com/rust-lang/rust/issues/35121>
 pub enum Void {}
