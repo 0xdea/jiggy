@@ -79,7 +79,7 @@ pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
     let mut old_position = mouse.get_position()?;
     let is_same_pos = |p: &Point, q: &Point| p.x == q.x && p.y == q.y;
 
-    println!("⏰  Using check interval: {interval:?}");
+    println!("⏰  Just chillin' for {interval:?}");
     let mut sp = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".into());
 
     ctrlc::set_handler(move || {
