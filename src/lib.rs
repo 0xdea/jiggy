@@ -83,7 +83,7 @@ pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
     let mut sp = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".into());
 
     ctrlc::set_handler(move || {
-        sp.stop_with_message("👋  Goodbye!".into());
+        sp.stop_with_message("✌️  Peace out!".into());
         exit(0);
     })?;
 
