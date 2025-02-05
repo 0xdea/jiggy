@@ -23,7 +23,7 @@ from home".*
 
 * Minimalistic (but effective) mouse jiggler, with no setup needed.
 * As implemented, mouse jiggling won't interfere with your regular activities.
-* Thanks to mouse wheel scroll, the new Microsoft Teams should not display you as away.
+* Thanks to non-invasive mouse wheel scrolling, the new Microsoft Teams should not display you as away.
 * Cross-platform support for macOS, Windows, and Linux.
 
 ## See also

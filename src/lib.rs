@@ -15,7 +15,7 @@
 //! ## Features
 //! * Minimalistic (but effective) mouse jiggler, with no setup needed.
 //! * As implemented, mouse jiggling won't interfere with your regular activities.
-//! * Thanks to mouse wheel scroll, the new Microsoft Teams should not display you as away.
+//! * Thanks to non-invasive mouse wheel scrolling, the new Microsoft Teams should not display you as away.
 //! * Cross-platform support for macOS, Windows, and Linux.
 //!
 //! ## See also
@@ -99,13 +99,12 @@ pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
 
 /// Slightly jiggle the mouse pointer and scroll the mouse wheel.
 fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std::error::Error>> {
-    // Jiggle the mouse pointer
+    // Sightly jiggle the mouse pointer
     mouse.move_to(position.x + 1, position.y + 1)?;
     mouse.move_to(position.x, position.y)?;
 
-    // Scroll the mouse wheel
-    mouse.wheel(1)?;
-    mouse.wheel(-1)?;
+    // Scroll the mouse wheel (a zero delta is apparently sufficient and has no side effects)
+    mouse.wheel(0)?;
 
     Ok(())
 }
