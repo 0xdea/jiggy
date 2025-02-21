@@ -41,6 +41,7 @@
 //! *Note: if run into problems building on Linux, you need to install `libxdo-dev` or equivalent package.*
 //!
 //! ## Usage
+//! Run jiggy as follows:
 //! ```sh
 //! $ jiggy [check_interval_in_secs]
 //! ```

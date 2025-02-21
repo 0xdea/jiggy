@@ -57,6 +57,8 @@ $ cargo build --release
 
 ## Usage
 
+Run jiggy as follows:
+
 ```sh
 $ jiggy [check_interval_in_secs]
 ```
