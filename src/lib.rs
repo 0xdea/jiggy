@@ -62,8 +62,8 @@ use std::process::exit;
 use std::thread::sleep;
 use std::time::Duration;
 
-use mouse_rs::types::Point;
 use mouse_rs::Mouse;
+use mouse_rs::types::Point;
 use spinners::{Spinner, Spinners};
 
 /// Empty enum to emulate the never type `!` and avoid using `#![feature(never_type)]`.
