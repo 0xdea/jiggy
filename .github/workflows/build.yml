@@ -19,7 +19,6 @@ jobs:
       - name: toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
-          toolchain: 1.85
           components: rustfmt, clippy
       - name: dependencies
         run: |
@@ -43,8 +42,6 @@ jobs:
           submodules: true
       - name: toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
-        with:
-          toolchain: 1.85
       - name: test
         run: cargo test
       - name: build
@@ -59,8 +56,6 @@ jobs:
           submodules: true
       - name: toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
-        with:
-          toolchain: 1.85
       - name: test
         run: cargo test
       - name: build
