@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Improve documentation
+* Improve documentation.
+* Improve CI speed by removing redundant tasks.
 
 ## [0.1.2] - 2025-02-06
 
