@@ -2,7 +2,7 @@
 name = "jiggy"
 version = "0.1.3"
 authors = ["Marco Ivaldi <raptor@0xdeadbeef.info>"]
-edition = "2021"
+edition = "2024"
 description = "Minimalistic cross-platform mouse jiggler written in Rust."
 homepage = "https://0xdeadbeef.info/"
 repository = "https://github.com/0xdea/jiggy"

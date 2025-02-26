@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Update dependencies.
+* Bump Rust edition to 2024 and update dependencies.
 * Improve documentation.
 * Improve CI speed by removing redundant tasks.
 
