@@ -123,6 +123,9 @@ mod tests {
 
         let q = m.get_position().unwrap();
 
-        assert!(p.x == q.x && p.y == q.y);
+        assert!(
+            p.x == q.x && p.y == q.y,
+            "mouse pointer didn't go back to its old position"
+        );
     }
 }
