@@ -75,6 +75,10 @@ pub enum Void {}
 
 /// Check the mouse position every `interval` seconds; jiggle the mouse pointer and scroll the
 /// wheel if the position hasn't changed.
+///
+/// ## Errors
+///
+/// Returns a generic error in case something goes wrong.
 pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
