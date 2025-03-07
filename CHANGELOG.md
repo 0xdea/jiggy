@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Add error section in public function documentation.
+* Avoid generating documentation for private items.
 
 ## [0.1.4] - 2025-03-07
 
