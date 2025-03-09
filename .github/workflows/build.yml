@@ -7,6 +7,8 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  SCCACHE_GHA_ENABLED: "true"
+  RUSTC_WRAPPER: "sccache"
 
 jobs:
   build-linux:
@@ -20,6 +22,8 @@ jobs:
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           components: rustfmt, clippy
+      - name: sccache
+        uses: mozilla-actions/sccache-action@v0.0.7
       - name: dependencies
         run: |
           sudo apt-get update
@@ -42,6 +46,8 @@ jobs:
           submodules: true
       - name: toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: sccache
+        uses: mozilla-actions/sccache-action@v0.0.7
       - name: test
         run: cargo test
       - name: build
@@ -56,6 +62,8 @@ jobs:
           submodules: true
       - name: toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: sccache
+        uses: mozilla-actions/sccache-action@v0.0.7
       - name: test
         run: cargo test
       - name: build
