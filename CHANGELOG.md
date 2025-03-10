@@ -5,10 +5,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.1.5]
 
 ### Changed
 
+* Update dependencies.
 * Add error section in public function documentation.
 * Avoid generating documentation for private items.
 * Improve CI effectiveness and performance.
@@ -45,7 +46,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * First release to be published to [crates.io](https://crates.io/).
 
-[unreleased]: https://github.com/0xdea/jiggy/compare/v0.1.4...HEAD
+[unreleased]: https://github.com/0xdea/jiggy/compare/v0.1.5...HEAD
+
+[0.1.5]: https://github.com/0xdea/jiggy/compare/v0.1.4...v0.1.5
 
 [0.1.4]: https://github.com/0xdea/jiggy/compare/v0.1.3...v0.1.4
 
