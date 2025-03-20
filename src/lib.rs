@@ -27,23 +27,23 @@
 //! ## Installing
 //! The easiest way to get the latest release is via [crates.io](https://crates.io/crates/jiggy):
 //! ```sh
-//! $ cargo install jiggy
+//! cargo install jiggy
 //! ```
 //! *Note: if run into problems building on Linux, you need to install `libxdo-dev` or equivalent package.*
 //!
 //! ## Compiling
 //! Alternatively, you can build from [source](https://github.com/0xdea/jiggy):
 //! ```sh
-//! $ git clone https://github.com/0xdea/jiggy
-//! $ cd jiggy
-//! $ cargo build --release
+//! git clone https://github.com/0xdea/jiggy
+//! cd jiggy
+//! cargo build --release
 //! ```
 //! *Note: if run into problems building on Linux, you need to install `libxdo-dev` or equivalent package.*
 //!
 //! ## Usage
 //! Run jiggy as follows:
 //! ```sh
-//! $ jiggy [check_interval_in_secs]
+//! jiggy [check_interval_in_secs]
 //! ```
 //! *Note: on macOS, you might need to grant Accessibility privileges to your terminal application.*
 //!

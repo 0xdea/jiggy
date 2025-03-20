@@ -1,9 +1,8 @@
 //! main.rs
 
-use std::env;
 use std::path::Path;
-use std::process;
 use std::time::Duration;
+use std::{env, process};
 
 const PROGRAM: &str = env!("CARGO_PKG_NAME");
 const VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -47,10 +46,10 @@ fn main() {
 /// Print usage information and exit
 fn usage(prog: &str) {
     println!("Usage:");
-    println!("$ {prog} [check_interval_in_secs] (default: {DEFAULT_CHECK_INTERVAL}s)");
+    println!("{prog} [check_interval_in_secs] (default: {DEFAULT_CHECK_INTERVAL}s)");
     println!("\nExamples:");
-    println!("$ {prog}");
-    println!("$ {prog} 30");
+    println!("{prog}");
+    println!("{prog} 30");
 
-    process::exit(1);
+    process::exit(0);
 }
