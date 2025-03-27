@@ -73,8 +73,8 @@ use spinners::{Spinner, Spinners};
 /// * <https://github.com/rust-lang/rust/issues/35121>
 pub enum Void {}
 
-/// Check the mouse position every `interval` seconds; jiggle the mouse pointer and scroll the
-/// wheel if the position hasn't changed.
+/// Check the mouse position every `interval`; jiggle the mouse pointer and scroll the wheel if the
+/// position hasn't changed.
 ///
 /// ## Errors
 ///
