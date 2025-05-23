@@ -108,7 +108,7 @@ fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std:
     mouse.move_to(position.x + 1, position.y + 1)?;
     mouse.move_to(position.x, position.y)?;
 
-    // Scroll the mouse wheel (a zero delta is apparently sufficient and has no side effects)
+    // Scroll the mouse wheel (a zero delta is apparently enough and has no side effects)
     mouse.wheel(0)?;
 
     Ok(())

@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+* Add contents read permission to build CI.
+
 ### Changed
 
+* Improve documentation.
 * Update dependencies.
 
 ### Fixed
@@ -34,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Update dependencies.
-* Add error section in public function documentation.
+* Add an error section in public function documentation.
 * Avoid generating documentation for private items.
 * Improve CI effectiveness and performance.
 
@@ -57,7 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-* Get rid of annoying side effects by scrolling the mouse wheel with a zero delta, which is apparently sufficient to
+* Get rid of annoying side effects by scrolling the mouse wheel with a zero delta, which is apparently enough to
   keep the computer awake.
 
 ## [0.1.1] - 2025-02-04
