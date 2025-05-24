@@ -1,6 +1,6 @@
 [package]
 name = "jiggy"
-version = "0.1.8"
+version = "0.1.9-alpha"
 authors = ["Marco Ivaldi <raptor@0xdeadbeef.info>"]
 edition = "2024"
 description = "Minimalistic cross-platform mouse jiggler written in Rust."
@@ -33,3 +33,6 @@ opt-level = "z"
 lto = true
 # codegen-units = 1
 panic = "abort"
+
+[profile.dev]
+debug = false
