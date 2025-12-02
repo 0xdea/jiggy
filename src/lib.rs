@@ -120,13 +120,15 @@ mod tests {
 
     #[test]
     fn mouse_pointer_goes_back_to_its_old_position() {
+        // Arrange
         let m = Mouse::new();
         let p = m.get_position().unwrap();
 
+        // Act
         jiggle_and_scroll(&m, &p).unwrap();
-
         let q = m.get_position().unwrap();
 
+        // Assert
         assert!(
             p.x == q.x && p.y == q.y,
             "mouse pointer didn't go back to its old position"
