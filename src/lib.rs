@@ -47,7 +47,7 @@ pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
 
 /// Slightly jiggle the mouse pointer and scroll the mouse wheel.
 fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std::error::Error>> {
-    // Sightly jiggle the mouse pointer
+    // Slightly jiggle the mouse pointer
     mouse.move_to(position.x + 1, position.y + 1)?;
     mouse.move_to(position.x, position.y)?;
 
@@ -65,15 +65,20 @@ mod tests {
     fn mouse_pointer_goes_back_to_its_old_position() {
         // Arrange
         let m = Mouse::new();
-        let p = m.get_position().unwrap();
+        let p = m
+            .get_position()
+            .expect("failed to get initial mouse position");
 
         // Act
-        jiggle_and_scroll(&m, &p).unwrap();
-        let q = m.get_position().unwrap();
+        jiggle_and_scroll(&m, &p).expect("unable to jiggle and scroll mouse");
+        let q = m
+            .get_position()
+            .expect("failed to get final mouse position");
 
         // Assert
-        assert!(
-            p.x == q.x && p.y == q.y,
+        assert_eq!(
+            (p.x, p.y),
+            (q.x, q.y),
             "mouse pointer didn't go back to its old position"
         );
     }
