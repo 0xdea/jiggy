@@ -1,9 +1,8 @@
 #![doc = include_str!("../README.md")]
 #![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggy/master/.img/logo.png")]
 
-use std::process::exit;
-use std::thread::sleep;
 use std::time::Duration;
+use std::{process, thread};
 
 use mouse_rs::Mouse;
 use mouse_rs::types::Point;
@@ -32,7 +31,7 @@ pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
 
     ctrlc::set_handler(move || {
         sp.stop_with_message("✌️  Peace out!".into());
-        exit(0);
+        process::exit(0);
     })?;
 
     loop {
@@ -41,7 +40,7 @@ pub fn run(interval: Duration) -> Result<Void, Box<dyn std::error::Error>> {
             jiggle_and_scroll(&mouse, &cur_position)?;
         }
         old_position = cur_position;
-        sleep(interval);
+        thread::sleep(interval);
     }
 }
 
