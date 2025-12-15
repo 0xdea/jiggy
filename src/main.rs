@@ -27,7 +27,7 @@ fn main() {
     let interval = match args.len() {
         1 => DEFAULT_CHECK_INTERVAL,
         2 => args[1].parse().unwrap_or(0),
-        _ => 0,
+        _ => usage(prog),
     };
     if interval == 0 {
         usage(prog);
@@ -44,7 +44,7 @@ fn main() {
 }
 
 /// Print usage information and exit
-fn usage(prog: &str) {
+fn usage(prog: &str) -> ! {
     println!("Usage:");
     println!("{prog} [check_interval_in_secs] (default: {DEFAULT_CHECK_INTERVAL}s)");
     println!("\nExamples:");
