@@ -1,8 +1,10 @@
 //! main.rs
 
+use std::env;
+use std::ffi::OsString;
 use std::path::Path;
+use std::process::ExitCode;
 use std::time::Duration;
-use std::{env, process};
 
 const PROGRAM: &str = env!("CARGO_PKG_NAME");
 const VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -10,46 +12,46 @@ const VERSION: &str = env!("CARGO_PKG_VERSION");
 /// Default check interval expressed in seconds
 const DEFAULT_CHECK_INTERVAL: u64 = 60;
 
-fn main() {
-    println!("{PROGRAM} {VERSION} - Minimalistic cross-platform mouse jiggler");
-    println!("Copyright (c) 2025 Marco Ivaldi <raptor@0xdeadbeef.info>");
-    println!();
+fn main() -> ExitCode {
+    eprintln!("{PROGRAM} {VERSION} - Minimalistic cross-platform mouse jiggler");
+    eprintln!("Copyright (c) 2025 Marco Ivaldi <raptor@0xdeadbeef.info>");
+    eprintln!();
 
     // Parse command line arguments
-    let args = env::args().collect::<Vec<_>>();
+    let mut args = env::args_os();
+    let argv0 = args.next().unwrap_or_else(|| OsString::from(PROGRAM));
 
-    let prog = Path::new(&args[0])
+    let prog = Path::new(&argv0)
         .file_name()
-        .unwrap()
-        .to_str()
+        .and_then(|s| s.to_str())
         .unwrap_or(PROGRAM);
 
-    let interval = match args.len() {
-        1 => DEFAULT_CHECK_INTERVAL,
-        2 => args[1].parse().unwrap_or(0),
-        _ => usage(prog),
+    let interval = match (args.next(), args.next()) {
+        (Some(arg), None) => arg.to_str().and_then(|s| s.parse().ok()).unwrap_or(0),
+        (None, _) => DEFAULT_CHECK_INTERVAL,
+        _ => return usage(prog),
     };
     if interval == 0 {
-        usage(prog);
+        return usage(prog);
     }
 
     // Let's do it
     match jiggy::run(Duration::from_secs(interval)) {
-        Ok(_) => (),
+        Ok(_) => ExitCode::SUCCESS,
         Err(err) => {
             eprintln!("[!] Error: {err}");
-            process::exit(1);
+            ExitCode::FAILURE
         }
     }
 }
 
 /// Print usage information and exit
-fn usage(prog: &str) -> ! {
-    println!("Usage:");
-    println!("{prog} [check_interval_in_secs] (default: {DEFAULT_CHECK_INTERVAL}s)");
-    println!("\nExamples:");
-    println!("{prog}");
-    println!("{prog} 30");
+fn usage(prog: &str) -> ExitCode {
+    eprintln!("Usage:");
+    eprintln!("{prog} [check_interval_in_secs] (default: {DEFAULT_CHECK_INTERVAL}s)");
+    eprintln!("\nExamples:");
+    eprintln!("{prog}");
+    eprintln!("{prog} 30");
 
-    process::exit(0);
+    ExitCode::FAILURE
 }
