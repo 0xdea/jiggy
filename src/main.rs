@@ -27,8 +27,8 @@ fn main() -> ExitCode {
         .unwrap_or(PROGRAM);
 
     let interval = match (args.next(), args.next()) {
-        (Some(arg), None) => arg.to_str().and_then(|s| s.parse().ok()).unwrap_or(0),
         (None, _) => DEFAULT_CHECK_INTERVAL,
+        (Some(arg), None) => arg.to_str().and_then(|s| s.parse().ok()).unwrap_or(0),
         _ => return usage(prog),
     };
     if interval == 0 {
