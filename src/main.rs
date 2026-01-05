@@ -13,8 +13,8 @@ const VERSION: &str = env!("CARGO_PKG_VERSION");
 const DEFAULT_CHECK_INTERVAL: u64 = 60;
 
 fn main() -> ExitCode {
-    eprintln!("{PROGRAM} {VERSION} - Minimalistic cross-platform mouse jiggler");
-    eprintln!("Copyright (c) 2025 Marco Ivaldi <raptor@0xdeadbeef.info>");
+    eprintln!("{PROGRAM} {VERSION} - Minimalistic cross-platform mouse jiggler tool");
+    eprintln!("Copyright (c) 2025-2026 Marco Ivaldi <raptor@0xdeadbeef.info>");
     eprintln!();
 
     // Parse command line arguments
