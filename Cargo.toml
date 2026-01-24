@@ -1,6 +1,6 @@
 [package]
 name = "jiggy"
-version = "1.0.2"
+version = "1.0.3-alpha"
 authors = ["Marco Ivaldi <raptor@0xdeadbeef.info>"]
 edition = "2024"
 description = "Minimalistic cross-platform mouse jiggler written in Rust."
