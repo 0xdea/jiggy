@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
 * Improve command line parsing, error handling, and usage messages.
 * Improve code style.
 * Improve tests and documentation.
