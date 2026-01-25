@@ -8,13 +8,14 @@ use std::time::Duration;
 
 const PROGRAM: &str = env!("CARGO_PKG_NAME");
 const VERSION: &str = env!("CARGO_PKG_VERSION");
+const AUTHORS: &str = env!("CARGO_PKG_AUTHORS");
 
 /// Default check interval expressed in seconds
 const DEFAULT_CHECK_INTERVAL: u64 = 60;
 
 fn main() -> ExitCode {
     eprintln!("{PROGRAM} {VERSION} - Minimalistic cross-platform mouse jiggler tool");
-    eprintln!("Copyright (c) 2025-2026 Marco Ivaldi <raptor@0xdeadbeef.info>");
+    eprintln!("Copyright (c) 2025-2026 {AUTHORS}");
     eprintln!();
 
     // Parse command line arguments
@@ -37,7 +38,7 @@ fn main() -> ExitCode {
 
     // Let's do it
     match jiggy::run(Duration::from_secs(interval)) {
-        Ok(_) => ExitCode::SUCCESS,
+        Ok(()) => ExitCode::SUCCESS,
         Err(err) => {
             eprintln!("[!] Error: {err}");
             ExitCode::FAILURE

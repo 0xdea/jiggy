@@ -7,9 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+* Introduce the `AUTHORS` constant.
+
 ### Changed
 
 * Update OS compatibility information.
+* Update dependencies.
+
+### Removed
+
+* Remove the `Void` workaround that was there to emulate the never type `!`.
 
 ## [1.0.2] - 2026-01-24
 
