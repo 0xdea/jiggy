@@ -1,7 +1,6 @@
 //! main.rs
 
 use std::env;
-use std::ffi::OsString;
 use std::path::Path;
 use std::process::ExitCode;
 use std::time::Duration;
@@ -20,7 +19,7 @@ fn main() -> ExitCode {
 
     // Parse command line arguments
     let mut args = env::args_os();
-    let argv0 = args.next().unwrap_or_else(|| OsString::from(PROGRAM));
+    let argv0 = args.next().unwrap_or_else(|| PROGRAM.into());
 
     let prog = Path::new(&argv0)
         .file_name()
