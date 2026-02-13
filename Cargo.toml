@@ -27,7 +27,6 @@ multiple_crate_versions = "allow"
 missing_docs = { level = "warn" }
 
 [profile.release]
-# see https://github.com/johnthagen/min-sized-rust
 strip = true
 lto = true
 opt-level = "z"
