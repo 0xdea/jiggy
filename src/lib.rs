@@ -19,7 +19,7 @@ pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
     let mut old_position = mouse.get_position()?;
     let is_same_pos = |p: &Point, q: &Point| p.x == q.x && p.y == q.y;
 
-    println!("⏰  Just chillin' for {interval:?}");
+    println!("⏰  Just chillin' for {}s", interval.as_secs());
     let mut sp = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".into());
 
     ctrlc::set_handler(move || {
@@ -54,7 +54,7 @@ mod tests {
     use super::*;
 
     #[test]
-    #[allow(clippy::expect_used, reason = "tests can use `expect`")]
+    #[expect(clippy::expect_used, reason = "tests can use `expect`")]
     fn mouse_pointer_goes_back_to_its_old_position() {
         // Arrange
         let m = Mouse::new();
