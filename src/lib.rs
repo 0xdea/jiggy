@@ -54,6 +54,7 @@ mod tests {
     use super::*;
 
     #[test]
+    #[allow(clippy::expect_used, reason = "tests can use `expect`")]
     fn mouse_pointer_goes_back_to_its_old_position() {
         // Arrange
         let m = Mouse::new();
