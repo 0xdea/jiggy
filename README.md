@@ -41,7 +41,7 @@ The easiest way to get the latest release is via [crates.io](https://crates.io/c
 cargo install jiggy
 ```
 
-> [!NOTE]
+> [!TIP]
 > If run into problems building on Linux, you need to install `libxdo-dev` or equivalent package.
 
 ## Compiling
@@ -54,7 +54,7 @@ cd jiggy
 cargo build --release
 ```
 
-> [!NOTE]
+> [!TIP]
 > If run into problems building on Linux, you need to install `libxdo-dev` or equivalent package.
 
 ## Usage
@@ -65,7 +65,7 @@ Run jiggy as follows:
 jiggy [check_interval_in_secs]
 ```
 
-> [!NOTE]
+> [!TIP]
 > On macOS, you might need to grant Accessibility privileges to your terminal application.
 
 ## Tested on
