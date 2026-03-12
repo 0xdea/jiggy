@@ -14,24 +14,24 @@
 Jiggy is a minimalistic (but effective) cross-platform mouse jiggler written in Rust. It might be useful for a number of
 "reasons."
 
-*Disclaimer: I'm not responsible for any problems that might arise due to using this program to pretend you're "working
-from home."*
+_Disclaimer: I'm not responsible for any problems that might arise due to using this program to pretend you're "working
+from home."_
 
 ![](https://raw.githubusercontent.com/0xdea/jiggy/master/.img/working-from-home.jpg)
 
 ## Features
 
-* Minimalistic (but effective) mouse jiggler, with no setup needed.
-* As implemented, mouse jiggling won't interfere with your regular activities.
-* Thanks to non-invasive mouse wheel scrolling, the new Microsoft Teams should not display you as away.
-* Cross-platform support for macOS, Windows, and Linux.
+- Minimalistic (but effective) mouse jiggler, with no setup needed.
+- As implemented, mouse jiggling won't interfere with your regular activities.
+- Thanks to non-invasive mouse wheel scrolling, the new Microsoft Teams should not display you as away.
+- Cross-platform support for macOS, Windows, and Linux.
 
 ## See also
 
-* <https://github.com/arkane-systems/mousejiggler>
-* <https://lib.rs/crates/jiggle>
-* <https://lib.rs/crates/stayawake>
-* <https://lib.rs/crates/meth>
+- <https://github.com/arkane-systems/mousejiggler>
+- <https://lib.rs/crates/jiggle>
+- <https://lib.rs/crates/stayawake>
+- <https://lib.rs/crates/meth>
 
 ## Installing
 
@@ -70,10 +70,10 @@ jiggy [check_interval_in_secs]
 
 ## Tested on
 
-* Apple macOS Sequoia 15.7.3
-* Ubuntu Linux 24.04.3 LTS
-* Microsoft Windows 11 23H2
+- Apple macOS Sequoia 15.7.3
+- Ubuntu Linux 24.04.3 LTS
+- Microsoft Windows 11 23H2
 
 ## Changelog
 
-* [CHANGELOG.md](CHANGELOG.md)
+- [CHANGELOG.md](CHANGELOG.md)
