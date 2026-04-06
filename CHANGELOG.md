@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Unreleased]
 
+### Changed
+
+- Improve documentation.
+
 ### Security
 
 - Pin action references to hashes and disable credential persistence in GitHub workflows.

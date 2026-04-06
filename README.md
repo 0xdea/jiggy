@@ -68,7 +68,9 @@ jiggy [check_interval_in_secs]
 > [!TIP]
 > On macOS, you might need to grant Accessibility privileges to your terminal application.
 
-## Tested on
+## Compatibility
+
+Tested on:
 
 - Apple macOS Sequoia 15.7.3
 - Ubuntu Linux 24.04.3 LTS
