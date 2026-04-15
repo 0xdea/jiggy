@@ -78,4 +78,4 @@ Tested on:
 
 ## Changelog
 
-- [CHANGELOG.md](CHANGELOG.md)
+- [CHANGELOG.md](https://github.com/0xdea/jiggy/blob/master/CHANGELOG.md)
