@@ -5,14 +5,14 @@ use std::path::Path;
 use std::process::ExitCode;
 use std::time::Duration;
 
-/// Package name
+/// Package name.
 const PROGRAM: &str = env!("CARGO_PKG_NAME");
-/// Package version
+/// Package version.
 const VERSION: &str = env!("CARGO_PKG_VERSION");
-/// Package authors
+/// Package authors.
 const AUTHORS: &str = env!("CARGO_PKG_AUTHORS");
 
-/// Default check interval expressed in seconds
+/// Default check interval expressed in seconds.
 const DEFAULT_CHECK_INTERVAL: u64 = 60;
 
 fn main() -> ExitCode {
@@ -20,7 +20,7 @@ fn main() -> ExitCode {
     eprintln!("Copyright (c) 2025-2026 {AUTHORS}");
     eprintln!();
 
-    // Parse command line arguments
+    // Parse command line arguments.
     let mut args = env::args_os();
     let argv0 = args.next().unwrap_or_else(|| PROGRAM.into());
 
@@ -38,7 +38,7 @@ fn main() -> ExitCode {
         return usage(prog);
     }
 
-    // Let's do it
+    // Let's do it.
     match jiggy::run(Duration::from_secs(interval)) {
         Ok(()) => ExitCode::SUCCESS,
         Err(err) => {
@@ -48,7 +48,7 @@ fn main() -> ExitCode {
     }
 }
 
-/// Print usage information and exit
+/// Prints usage information and exit.
 fn usage(prog: &str) -> ExitCode {
     eprintln!("Usage:");
     eprintln!("{prog} [check_interval_in_secs] (default: {DEFAULT_CHECK_INTERVAL}s)");

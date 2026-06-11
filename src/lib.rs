@@ -8,7 +8,7 @@ use mouse_rs::Mouse;
 use mouse_rs::types::Point;
 use spinners::{Spinner, Spinners};
 
-/// Check the mouse position every `interval`; jiggle the mouse pointer and scroll the wheel if the
+/// Checks the mouse position every `interval`; jiggles the mouse pointer and scroll the wheel if the
 /// position hasn't changed.
 ///
 /// ## Errors
@@ -37,13 +37,13 @@ pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
     }
 }
 
-/// Slightly jiggle the mouse pointer and scroll the mouse wheel.
+/// Slightly jiggles the mouse pointer and scroll the mouse wheel.
 fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std::error::Error>> {
-    // Slightly jiggle the mouse pointer
+    // Slightly jiggle the mouse pointer.
     mouse.move_to(position.x + 1, position.y + 1)?;
     mouse.move_to(position.x, position.y)?;
 
-    // Scroll the mouse wheel (a zero delta is apparently enough and has no side effects)
+    // Scroll the mouse wheel (a zero delta is apparently enough and has no side effects).
     mouse.wheel(0)?;
 
     Ok(())
@@ -56,19 +56,19 @@ mod tests {
     #[test]
     #[expect(clippy::expect_used, reason = "tests can use `expect`")]
     fn mouse_pointer_goes_back_to_its_old_position() {
-        // Arrange
+        // Arrange.
         let m = Mouse::new();
         let p = m
             .get_position()
             .expect("failed to get initial mouse position");
 
-        // Act
+        // Act.
         jiggle_and_scroll(&m, &p).expect("unable to jiggle and scroll mouse");
         let q = m
             .get_position()
             .expect("failed to get final mouse position");
 
-        // Assert
+        // Assert.
         assert_eq!(
             (p.x, p.y),
             (q.x, q.y),
