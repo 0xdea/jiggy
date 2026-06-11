@@ -48,7 +48,7 @@ fn main() -> ExitCode {
     }
 }
 
-/// Prints usage information and exit.
+/// Prints usage information and exits.
 fn usage(prog: &str) -> ExitCode {
     eprintln!("Usage:");
     eprintln!("{prog} [check_interval_in_secs] (default: {DEFAULT_CHECK_INTERVAL}s)");
