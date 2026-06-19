@@ -1,8 +1,10 @@
-#![doc = include_str!("../README.md")]
+#![doc = env!("CARGO_PKG_DESCRIPTION")]
+#![doc = ""]
+#![cfg_attr(doc, doc = include_str!("../README.md"))]
 #![doc(html_logo_url = "https://raw.githubusercontent.com/0xdea/jiggy/master/.img/logo.png")]
 
 use std::time::Duration;
-use std::{process, thread};
+use std::{error, process, thread};
 
 use mouse_rs::Mouse;
 use mouse_rs::types::Point;
@@ -14,7 +16,12 @@ use spinners::{Spinner, Spinners};
 /// # Errors
 ///
 /// Returns a generic error in case something goes wrong.
-pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
+#[expect(clippy::non_ascii_literal, reason = "this is fine 🔥")]
+#[expect(
+    clippy::exit,
+    reason = "the process is terminated by the signal handler"
+)]
+pub fn run(interval: Duration) -> Result<(), Box<dyn error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
     let is_same_pos = |p: &Point, q: &Point| p.x == q.x && p.y == q.y;
@@ -38,7 +45,11 @@ pub fn run(interval: Duration) -> Result<(), Box<dyn std::error::Error>> {
 }
 
 /// Slightly jiggles the mouse pointer and scroll the mouse wheel.
-fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn std::error::Error>> {
+#[expect(
+    clippy::arithmetic_side_effects,
+    reason = "`Point` cannot overflow here"
+)]
+fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn error::Error>> {
     // Slightly jiggle the mouse pointer.
     mouse.move_to(position.x + 1, position.y + 1)?;
     mouse.move_to(position.x, position.y)?;
