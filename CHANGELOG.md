@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Enable all clippy restriction lints and fix any resulting issues.
 - Improve comments.
+- Improve CI.
 - Update dependencies.
 
 ## [1.0.7] - 2026-06-14
