@@ -18,6 +18,12 @@ xvfb-run cargo test
 # Lint
 cargo clippy --all-targets   # warnings treated as errors
 cargo fmt --all --check
+
+# Doc (warnings treated as errors)
+RUSTDOCFLAGS="-D warnings" cargo doc --no-deps
+
+# Dependency vulnerability audit
+cargo audit
 ```
 
 ## Architecture
@@ -40,10 +46,14 @@ cargo fmt --all --check
 
 ## Lint Strictness
 
-The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc `missing_docs` lint. Fifteen lints are explicitly allowed in `Cargo.toml` (`blanket_clippy_restriction_lints`, `std_instead_of_core`, `std_instead_of_alloc`, `arbitrary_source_item_ordering`, `implicit_return`, `question_mark_used`, `print_stdout`, `print_stderr`, `min_ident_chars`, `single_char_lifetime_names`, `impl_trait_in_params`, `missing_inline_in_public_items`, `single_call_fn`, `use_debug`, `multiple_crate_versions`); everything else is an error.
+The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc `missing_docs` lint. Sixteen lints are explicitly allowed in `Cargo.toml` (`blanket_clippy_restriction_lints`, `std_instead_of_core`, `std_instead_of_alloc`, `arbitrary_source_item_ordering`, `implicit_return`, `question_mark_used`, `print_stdout`, `print_stderr`, `min_ident_chars`, `single_char_lifetime_names`, `impl_trait_in_params`, `missing_inline_in_public_items`, `inline_modules`, `single_call_fn`, `use_debug`, `multiple_crate_versions`); everything else is an error.
 
 Key rules:
 - Avoid `unwrap()`/`expect()` — propagate errors with `?`. In tests, suppress with `#[expect(clippy::expect_used, reason = "...")]`.
 - All public items require doc comments.
 - Unsafe blocks require a `// SAFETY:` comment (`undocumented_unsafe_blocks` is active via the restriction group).
 - Suppress lints locally with `#[expect(lint, reason = "...")]`, never `#[allow(...)]`.
+
+## CI
+
+`.github/workflows/build.yml` runs fmt, build, clippy, `cargo audit` (via `taiki-e/install-action`), `cargo doc` (with `RUSTDOCFLAGS=-D warnings`), and tests (`--locked`) across Linux/macOS/Windows, plus `zizmor` for workflow security linting. Dependencies (cargo + GitHub Actions) are kept current via `.github/dependabot.yml` (10-day cooldown).
