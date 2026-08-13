@@ -72,7 +72,7 @@ jiggy [check_interval_in_secs]
 
 Tested on:
 
-- Apple macOS Tahoe 26.4.1
+- Apple macOS Tahoe 26.5.2
 - Ubuntu Linux 24.04.3 LTS
 - Microsoft Windows 11 23H2
 

@@ -5,7 +5,9 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.8] - 2026-08-13
+
+Current stable release. Not planning any major changes.
 
 ### Changed
 
@@ -176,9 +178,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2025-02-03
 
-- First release to be published to [crates.io](https://crates.io/).
+First release to be published to [crates.io](https://crates.io/).
 
-[unreleased]: https://github.com/0xdea/jiggy/compare/v1.0.7...HEAD
+[unreleased]: https://github.com/0xdea/jiggy/compare/v1.0.8...HEAD
+[1.0.8]: https://github.com/0xdea/jiggy/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/0xdea/jiggy/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/0xdea/jiggy/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/0xdea/jiggy/compare/v1.0.4...v1.0.5
