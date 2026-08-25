@@ -6,21 +6,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Build
-cargo build
-cargo build --release
+cargo build --locked
+cargo build --release --locked
 
 # Test (local)
-cargo test
+cargo test --locked
 
 # Test (Linux headless, matches CI)
-xvfb-run cargo test
+xvfb-run cargo test --locked
 
 # Lint
-cargo clippy --all-targets   # warnings treated as errors
+cargo clippy --all-targets --locked  # warnings treated as errors
 cargo fmt --all --check
 
 # Doc (warnings treated as errors)
-RUSTDOCFLAGS="-D warnings" cargo doc --no-deps
+RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --locked
 
 # Dependency vulnerability audit
 cargo audit
@@ -31,6 +31,7 @@ cargo audit
 **Jiggy** is a single-binary Rust crate — a cross-platform mouse jiggler that keeps systems awake by detecting idle mouse position and performing minimal mouse movements. Designed to prevent "away" status in apps like Microsoft Teams.
 
 **Two source files:**
+
 - `src/main.rs` — CLI entry point: parses the optional interval-in-seconds argument, prints package metadata, calls `jiggy::run()`
 - `src/lib.rs` — Core logic: `run(interval)` event loop + private `jiggle_and_scroll()` helper
 
@@ -49,6 +50,7 @@ cargo audit
 The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc `missing_docs` lint. Sixteen lints are explicitly allowed in `Cargo.toml` (`blanket_clippy_restriction_lints`, `std_instead_of_core`, `std_instead_of_alloc`, `arbitrary_source_item_ordering`, `implicit_return`, `question_mark_used`, `print_stdout`, `print_stderr`, `min_ident_chars`, `single_char_lifetime_names`, `impl_trait_in_params`, `missing_inline_in_public_items`, `inline_modules`, `single_call_fn`, `use_debug`, `multiple_crate_versions`); everything else is an error.
 
 Key rules:
+
 - Avoid `unwrap()`/`expect()` — propagate errors with `?`. In tests, suppress with `#[expect(clippy::expect_used, reason = "...")]`.
 - All public items require doc comments.
 - Unsafe blocks require a `// SAFETY:` comment (`undocumented_unsafe_blocks` is active via the restriction group).

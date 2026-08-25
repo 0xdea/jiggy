@@ -38,7 +38,7 @@ from home."_
 The easiest way to get the latest release is via [crates.io](https://crates.io/crates/jiggy):
 
 ```sh
-cargo install jiggy
+cargo install jiggy --locked
 ```
 
 > [!TIP]
@@ -51,7 +51,7 @@ Alternatively, you can build from [source](https://github.com/0xdea/jiggy):
 ```sh
 git clone https://github.com/0xdea/jiggy
 cd jiggy
-cargo build --release
+cargo build --release --locked
 ```
 
 > [!TIP]
