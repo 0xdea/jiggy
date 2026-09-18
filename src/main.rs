@@ -5,8 +5,8 @@ use std::path::Path;
 use std::process::ExitCode;
 use std::time::Duration;
 
-/// Package name.
-const PROGRAM: &str = env!("CARGO_PKG_NAME");
+/// Binary name.
+const PROGRAM: &str = env!("CARGO_BIN_NAME");
 /// Package version.
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 /// Package authors.
