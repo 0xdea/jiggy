@@ -24,7 +24,7 @@ use spinners::{Spinner, Spinners};
 pub fn run(interval: Duration) -> Result<(), Box<dyn error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
-    let is_same_pos = |p: &Point, q: &Point| p.x == q.x && p.y == q.y;
+    let is_same_pos = |p1: &Point, p2: &Point| p1.x == p2.x && p1.y == p2.y;
 
     println!("⏰  Just chillin' for {}s", interval.as_secs());
     let mut sp = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".into());
@@ -68,21 +68,21 @@ mod tests {
     #[expect(clippy::expect_used, reason = "tests can use `expect`")]
     fn mouse_pointer_goes_back_to_its_old_position() {
         // Arrange.
-        let m = Mouse::new();
-        let p = m
+        let mouse = Mouse::new();
+        let point1 = mouse
             .get_position()
             .expect("failed to get initial mouse position");
 
         // Act.
-        jiggle_and_scroll(&m, &p).expect("unable to jiggle and scroll mouse");
-        let q = m
+        jiggle_and_scroll(&mouse, &point1).expect("unable to jiggle and scroll mouse");
+        let point2 = mouse
             .get_position()
             .expect("failed to get final mouse position");
 
         // Assert.
         assert_eq!(
-            (p.x, p.y),
-            (q.x, q.y),
+            (point1.x, point1.y),
+            (point2.x, point2.y),
             "mouse pointer didn't go back to its old position"
         );
     }

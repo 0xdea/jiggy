@@ -32,7 +32,10 @@ fn main() -> ExitCode {
 
     let interval = match (args.next(), args.next()) {
         (None, _) => DEFAULT_CHECK_INTERVAL,
-        (Some(arg), None) => arg.to_str().and_then(|s| s.parse().ok()).unwrap_or(0),
+        (Some(arg), None) => arg
+            .to_str()
+            .and_then(|string| string.parse().ok())
+            .unwrap_or(0),
         _ => return usage(prog),
     };
     if interval == 0 {
