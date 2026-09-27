@@ -35,7 +35,7 @@ cargo audit
 - `src/main.rs` — CLI entry point: parses the optional interval-in-seconds argument, prints package metadata, calls `jiggy::run()`
 - `src/lib.rs` — Core logic: `run(interval)` event loop + private `jiggle_and_scroll()` helper
 
-**`run(interval: Duration)`** polls mouse position on each tick. If the position is unchanged since the last tick, it calls `jiggle_and_scroll()`, which moves the cursor +1px and back, then sends a zero-delta wheel scroll. A Ctrl+C handler (via `ctrlc`) signals the loop to exit gracefully with a spinner message.
+**`run(interval: Duration)`** polls mouse position on each tick. If the position is unchanged since the last tick, it calls `jiggle_and_scroll()`, which moves the cursor +1px and back, then sends a zero-delta wheel scroll. A Ctrl+C handler (via `ctrlc`) stops the spinner with a farewell message and terminates the process via `process::exit(0)`.
 
 **Dependencies:** `mouse-rs` (cross-platform mouse control), `spinners` (terminal UX), `ctrlc` (signal handling).
 
@@ -47,7 +47,7 @@ cargo audit
 
 ## Lint Strictness
 
-The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc `missing_docs` lint. Sixteen lints are explicitly allowed in `Cargo.toml` (`blanket_clippy_restriction_lints`, `std_instead_of_core`, `std_instead_of_alloc`, `arbitrary_source_item_ordering`, `implicit_return`, `question_mark_used`, `print_stdout`, `print_stderr`, `min_ident_chars`, `single_char_lifetime_names`, `impl_trait_in_params`, `missing_inline_in_public_items`, `inline_modules`, `single_call_fn`, `use_debug`, `multiple_crate_versions`); everything else is an error.
+The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc `missing_docs` lint. Fifteen lints are explicitly allowed in `Cargo.toml` (`blanket_clippy_restriction_lints`, `std_instead_of_core`, `std_instead_of_alloc`, `arbitrary_source_item_ordering`, `implicit_return`, `question_mark_used`, `print_stdout`, `print_stderr`, `single_char_lifetime_names`, `impl_trait_in_params`, `missing_inline_in_public_items`, `inline_modules`, `single_call_fn`, `use_debug`, `multiple_crate_versions`); everything else is an error.
 
 Key rules:
 

@@ -10,12 +10,13 @@ use mouse_rs::Mouse;
 use mouse_rs::types::Point;
 use spinners::{Spinner, Spinners};
 
-/// Checks the mouse position every `interval`; jiggles the mouse pointer and scroll the wheel if the
+/// Checks the mouse position every `interval`; jiggles the mouse pointer and scrolls the wheel if the
 /// position hasn't changed.
 ///
 /// # Errors
 ///
-/// Returns a generic error in case something goes wrong.
+/// Returns an error if the mouse position can't be read, the mouse can't be moved or scrolled, or
+/// the Ctrl+C handler can't be installed.
 #[expect(clippy::non_ascii_literal, reason = "this is fine 🔥")]
 #[expect(
     clippy::exit,
@@ -24,13 +25,13 @@ use spinners::{Spinner, Spinners};
 pub fn run(interval: Duration) -> Result<(), Box<dyn error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
-    let is_same_pos = |p1: &Point, p2: &Point| p1.x == p2.x && p1.y == p2.y;
+    let is_same_pos = |before: &Point, after: &Point| before.x == after.x && before.y == after.y;
 
     println!("⏰  Just chillin' for {}s", interval.as_secs());
-    let mut sp = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".into());
+    let mut spinner = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".to_owned());
 
     ctrlc::set_handler(move || {
-        sp.stop_with_message("✌️  Peace out!".into());
+        spinner.stop_with_message("✌️  Peace out!".to_owned());
         process::exit(0);
     })?;
 
@@ -44,14 +45,10 @@ pub fn run(interval: Duration) -> Result<(), Box<dyn error::Error>> {
     }
 }
 
-/// Slightly jiggles the mouse pointer and scroll the mouse wheel.
-#[expect(
-    clippy::arithmetic_side_effects,
-    reason = "`Point` cannot overflow here"
-)]
+/// Slightly jiggles the mouse pointer and scrolls the mouse wheel.
 fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn error::Error>> {
     // Slightly jiggle the mouse pointer.
-    mouse.move_to(position.x + 1, position.y + 1)?;
+    mouse.move_to(position.x.saturating_add(1), position.y.saturating_add(1))?;
     mouse.move_to(position.x, position.y)?;
 
     // Scroll the mouse wheel (a zero delta is apparently enough and has no side effects).
@@ -69,20 +66,20 @@ mod tests {
     fn mouse_pointer_goes_back_to_its_old_position() {
         // Arrange.
         let mouse = Mouse::new();
-        let point1 = mouse
+        let before = mouse
             .get_position()
             .expect("failed to get initial mouse position");
 
         // Act.
-        jiggle_and_scroll(&mouse, &point1).expect("unable to jiggle and scroll mouse");
-        let point2 = mouse
+        jiggle_and_scroll(&mouse, &before).expect("unable to jiggle and scroll mouse");
+        let after = mouse
             .get_position()
             .expect("failed to get final mouse position");
 
         // Assert.
         assert_eq!(
-            (point1.x, point1.y),
-            (point2.x, point2.y),
+            (before.x, before.y),
+            (after.x, after.y),
             "mouse pointer didn't go back to its old position"
         );
     }

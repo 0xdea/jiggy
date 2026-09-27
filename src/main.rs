@@ -42,7 +42,6 @@ fn main() -> ExitCode {
         return usage(prog);
     }
 
-    // Let's do it.
     match jiggy::run(Duration::from_secs(interval)) {
         Ok(()) => ExitCode::SUCCESS,
         Err(err) => {
