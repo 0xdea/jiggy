@@ -10,13 +10,13 @@ use mouse_rs::Mouse;
 use mouse_rs::types::Point;
 use spinners::{Spinner, Spinners};
 
-/// Checks the mouse position every `interval`; jiggles the mouse pointer and scrolls the wheel if the
-/// position hasn't changed.
+/// Checks the mouse position every `interval`; jiggles the mouse pointer and
+/// scrolls the wheel if the position hasn't changed.
 ///
 /// # Errors
 ///
-/// Returns an error if the mouse position can't be read, the mouse can't be moved or scrolled, or
-/// the Ctrl+C handler can't be installed.
+/// Returns an error if the mouse position can't be read, the mouse can't be
+/// moved or scrolled, or the Ctrl+C handler can't be installed.
 #[expect(clippy::non_ascii_literal, reason = "this is fine 🔥")]
 #[expect(
     clippy::exit,
@@ -51,7 +51,8 @@ fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn erro
     mouse.move_to(position.x.saturating_add(1), position.y.saturating_add(1))?;
     mouse.move_to(position.x, position.y)?;
 
-    // Scroll the mouse wheel (a zero delta is apparently enough and has no side effects).
+    // Scroll the mouse wheel (a zero delta is apparently enough and has no side
+    // effects).
     mouse.wheel(0)?;
 
     Ok(())
