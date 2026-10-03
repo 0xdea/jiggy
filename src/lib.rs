@@ -25,7 +25,6 @@ use spinners::{Spinner, Spinners};
 pub fn run(interval: Duration) -> Result<(), Box<dyn error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
-    let is_same_pos = |before: &Point, after: &Point| before.x == after.x && before.y == after.y;
 
     println!("⏰  Just chillin' for {}s", interval.as_secs());
     let mut spinner = Spinner::new(Spinners::Moon, "Gettin' jiggy wit it!".to_owned());
@@ -37,12 +36,19 @@ pub fn run(interval: Duration) -> Result<(), Box<dyn error::Error>> {
 
     loop {
         let cur_position = mouse.get_position()?;
-        if is_same_pos(&cur_position, &old_position) {
+        if is_same_position(&cur_position, &old_position) {
             jiggle_and_scroll(&mouse, &cur_position)?;
         }
         old_position = cur_position;
         thread::sleep(interval);
     }
+}
+
+/// Returns `true` if `before` and `after` are the same position, i.e., the
+/// mouse hasn't moved.
+#[must_use]
+const fn is_same_position(before: &Point, after: &Point) -> bool {
+    before.x == after.x && before.y == after.y
 }
 
 /// Slightly jiggles the mouse pointer and scrolls the mouse wheel.
@@ -61,6 +67,39 @@ fn jiggle_and_scroll(mouse: &Mouse, position: &Point) -> Result<(), Box<dyn erro
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn unchanged_position_is_same_position() {
+        let before = Point { x: 100, y: 200 };
+        let after = Point { x: 100, y: 200 };
+
+        assert!(
+            is_same_position(&before, &after),
+            "identical positions should be the same position"
+        );
+    }
+
+    #[test]
+    fn horizontal_move_is_not_same_position() {
+        let before = Point { x: 100, y: 200 };
+        let after = Point { x: 101, y: 200 };
+
+        assert!(
+            !is_same_position(&before, &after),
+            "a move along x should not be the same position"
+        );
+    }
+
+    #[test]
+    fn vertical_move_is_not_same_position() {
+        let before = Point { x: 100, y: 200 };
+        let after = Point { x: 100, y: 201 };
+
+        assert!(
+            !is_same_position(&before, &after),
+            "a move along y should not be the same position"
+        );
+    }
 
     #[test]
     #[expect(clippy::expect_used, reason = "tests can use `expect`")]
