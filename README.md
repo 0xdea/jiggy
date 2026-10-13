@@ -49,7 +49,7 @@ cargo install jiggy --locked
 Alternatively, you can build from [source](https://github.com/0xdea/jiggy):
 
 ```sh
-git clone https://github.com/0xdea/jiggy
+git clone --depth 1 https://github.com/0xdea/jiggy
 cd jiggy
 cargo build --release --locked
 ```
