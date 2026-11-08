@@ -47,7 +47,7 @@ cargo audit
 
 ## Lint Strictness
 
-The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc lints `missing_docs`, `elided_lifetimes_in_paths`, `bare_trait_objects`, and `explicit_outlives_requirements`, all at `warn`. Twenty-two lints are explicitly allowed in `Cargo.toml` (`blanket_clippy_restriction_lints`, `std_instead_of_core`, `std_instead_of_alloc`, `arbitrary_source_item_ordering`, `implicit_return`, `question_mark_used`, `pattern_type_mismatch`, `rest_pattern_accessible_field`, `shadow_reuse`, `shadow_same`, `print_stdout`, `print_stderr`, `single_char_lifetime_names`, `impl_trait_in_params`, `missing_inline_in_public_items`, `inline_modules`, `mod_module_files`, `single_call_fn`, `separated_literal_suffix`, `default_numeric_fallback`, `use_debug`, `multiple_crate_versions`). Everything else warns, and CI promotes warnings to errors with `-D warnings`.
+The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc lints `missing_docs`, `elided_lifetimes_in_paths`, `bare_trait_objects`, and `explicit_outlives_requirements`, all at `warn`. `[workspace.lints.clippy]` in `Cargo.toml` explicitly allows a set of lints that don't fit this codebase; check that allowlist before suppressing anything locally. Everything else warns, and CI promotes warnings to errors with `-D warnings`.
 
 Key rules:
 
