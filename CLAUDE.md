@@ -16,7 +16,7 @@ cargo test --locked
 xvfb-run cargo test --locked
 
 # Lint
-cargo clippy --all-targets --locked  # warnings treated as errors
+cargo clippy --all-targets --locked -- -D warnings
 cargo fmt --all --check
 
 # Doc (warnings treated as errors)
@@ -33,9 +33,9 @@ cargo audit
 **Two source files:**
 
 - `src/main.rs` — CLI entry point: parses the optional interval-in-seconds argument, prints package metadata, calls `jiggy::run()`
-- `src/lib.rs` — Core logic: `run(interval)` event loop + private `jiggle_and_scroll()` helper
+- `src/lib.rs` — Core logic: `run(interval)` event loop (returns `Result<(), Box<dyn Error>>`) + private `is_same_position()` and `jiggle_and_scroll()` helpers
 
-**`run(interval: Duration)`** polls mouse position on each tick. If the position is unchanged since the last tick, it calls `jiggle_and_scroll()`, which moves the cursor +1px and back, then sends a zero-delta wheel scroll. A Ctrl+C handler (via `ctrlc`) stops the spinner with a farewell message and terminates the process via `process::exit(0)`.
+**`run(interval: Duration)`** polls mouse position on each tick. If the position is unchanged since the last tick (checked by `is_same_position()`), it calls `jiggle_and_scroll()`, which moves the cursor +1px and back, then sends a zero-delta wheel scroll. A Ctrl+C handler (via `ctrlc`) stops the spinner with a farewell message and terminates the process via `process::exit(0)`.
 
 **Dependencies:** `mouse-rs` (cross-platform mouse control), `spinners` (terminal UX), `ctrlc` (signal handling).
 
@@ -47,7 +47,7 @@ cargo audit
 
 ## Lint Strictness
 
-The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc `missing_docs` lint. Fifteen lints are explicitly allowed in `Cargo.toml` (`blanket_clippy_restriction_lints`, `std_instead_of_core`, `std_instead_of_alloc`, `arbitrary_source_item_ordering`, `implicit_return`, `question_mark_used`, `print_stdout`, `print_stderr`, `single_char_lifetime_names`, `impl_trait_in_params`, `missing_inline_in_public_items`, `inline_modules`, `single_call_fn`, `use_debug`, `multiple_crate_versions`); everything else is an error.
+The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc lints `missing_docs`, `elided_lifetimes_in_paths`, `bare_trait_objects`, and `explicit_outlives_requirements`, all at `warn`. Twenty-two lints are explicitly allowed in `Cargo.toml` (`blanket_clippy_restriction_lints`, `std_instead_of_core`, `std_instead_of_alloc`, `arbitrary_source_item_ordering`, `implicit_return`, `question_mark_used`, `pattern_type_mismatch`, `rest_pattern_accessible_field`, `shadow_reuse`, `shadow_same`, `print_stdout`, `print_stderr`, `single_char_lifetime_names`, `impl_trait_in_params`, `missing_inline_in_public_items`, `inline_modules`, `mod_module_files`, `single_call_fn`, `separated_literal_suffix`, `default_numeric_fallback`, `use_debug`, `multiple_crate_versions`). Everything else warns, and CI promotes warnings to errors with `-D warnings`.
 
 Key rules:
 
@@ -58,4 +58,4 @@ Key rules:
 
 ## CI
 
-`.github/workflows/build.yml` runs fmt, build, clippy, `cargo audit` (via `taiki-e/install-action`), `cargo doc` (with `RUSTDOCFLAGS=-D warnings`), and tests (`--locked`) across Linux/macOS/Windows, plus `zizmor` for workflow security linting. Dependencies (cargo + GitHub Actions) are kept current via `.github/dependabot.yml` (10-day cooldown).
+`.github/workflows/build.yml`: the Linux job runs fmt, build, clippy (`-D warnings`), `cargo audit` (via `taiki-e/install-action`), `cargo doc` (with `RUSTDOCFLAGS=-D warnings`), and tests under `xvfb-run` (`--locked`); the macOS and Windows jobs only build and test. All jobs use sccache, falling back to uncached builds if it fails to start. A separate `zizmor` job lints the workflows. Dependencies (cargo + GitHub Actions) are kept current via `.github/dependabot.yml` (10-day cooldown).
