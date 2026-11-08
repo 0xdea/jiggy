@@ -9,7 +9,7 @@ repository = "https://github.com/0xdea/jiggy"
 license = "MIT"
 keywords = ["mouse", "jiggler", "windows", "linux", "macos"]
 categories = ["command-line-utilities"]
-exclude = [".github/*", ".img/*", ".gitignore", "CLAUDE.md"]
+exclude = [".cargo/*", ".github/*", ".img/*", ".gitignore", "CLAUDE.md", "tests/*"]
 
 [dependencies]
 mouse-rs = "0.4"
