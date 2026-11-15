@@ -16,7 +16,7 @@ cargo test --locked
 xvfb-run cargo test --locked
 
 # Lint
-cargo clippy --all-targets --locked -- -D warnings
+CARGO_BUILD_WARNINGS=deny cargo clippy --all-targets --locked -- -D warnings
 cargo fmt --all --check
 
 # Doc (warnings treated as errors)
@@ -47,7 +47,7 @@ cargo audit
 
 ## Lint Strictness
 
-The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc lints `missing_docs`, `elided_lifetimes_in_paths`, `bare_trait_objects`, and `explicit_outlives_requirements`, all at `warn`. `[workspace.lints.clippy]` in `Cargo.toml` explicitly allows a set of lints that don't fit this codebase; check that allowlist before suppressing anything locally. Everything else warns, and CI promotes warnings to errors with `-D warnings`.
+The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `cargo`, `restriction`) plus the rustc lints `missing_docs`, `elided_lifetimes_in_paths`, `bare_trait_objects`, and `explicit_outlives_requirements`, all at `warn`. `[workspace.lints.clippy]` in `Cargo.toml` explicitly allows a set of lints that don't fit this codebase; check that allowlist before suppressing anything locally. `[workspace.lints.cargo]` likewise enables Cargo's `default`, `pedantic`, and `restriction` lint groups (manifest checks such as unused dependencies), minus the snake_case naming lints, which contradict the kebab-case ones. Everything else warns, and CI promotes warnings to errors with `-D warnings` and, for Cargo lints, `CARGO_BUILD_WARNINGS=deny`.
 
 Key rules:
 
