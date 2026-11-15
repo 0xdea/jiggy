@@ -51,7 +51,7 @@ The project enables all five Clippy lint groups (`all`, `pedantic`, `nursery`, `
 
 Key rules:
 
-- Avoid `unwrap()`/`expect()` — propagate errors with `?`. In tests, suppress with `#[expect(clippy::expect_used, reason = "...")]`.
+- Avoid `unwrap()`/`expect()` — propagate errors with `?`. `clippy.toml` allows them in tests, along with `panic!` and indexing, so tests need no suppression.
 - All public items require doc comments.
 - Unsafe blocks require a `// SAFETY:` comment (`undocumented_unsafe_blocks` is active via the restriction group).
 - Suppress lints locally with `#[expect(lint, reason = "...")]`, never `#[allow(...)]`.
