@@ -42,13 +42,9 @@ fn main() -> ExitCode {
         return usage(prog);
     }
 
-    match jiggy::run(Duration::from_secs(interval)) {
-        Ok(()) => ExitCode::SUCCESS,
-        Err(err) => {
-            eprintln!("[!] Error: {err}");
-            ExitCode::FAILURE
-        }
-    }
+    let Err(err) = jiggy::run(Duration::from_secs(interval));
+    eprintln!("[!] Error: {err}");
+    ExitCode::FAILURE
 }
 
 /// Prints usage information for `prog` and returns [`ExitCode::FAILURE`].

@@ -33,7 +33,7 @@ cargo audit
 **Two source files:**
 
 - `src/main.rs` — CLI entry point: parses the optional interval-in-seconds argument, prints package metadata, calls `jiggy::run()`
-- `src/lib.rs` — Core logic: `run(interval)` event loop (returns `Result<(), Box<dyn Error>>`) + private `is_same_position()` and `jiggle_and_scroll()` helpers
+- `src/lib.rs` — Core logic: `run(interval)` event loop (returns `Result<!, Box<dyn Error>>`: it only returns on error) + private `is_same_position()` and `jiggle_and_scroll()` helpers
 
 **`run(interval: Duration)`** polls mouse position on each tick. If the position is unchanged since the last tick (checked by `is_same_position()`), it calls `jiggle_and_scroll()`, which moves the cursor +1px and back, then sends a zero-delta wheel scroll. A Ctrl+C handler (via `ctrlc`) stops the spinner with a farewell message and terminates the process via `process::exit(0)`.
 

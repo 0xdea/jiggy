@@ -5,7 +5,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.0] - 2026-11-15
+
+### Changed
+
+- **Breaking:** Return `Result<!, _>` from `run`, since it only returns on error.
+- Require Rust 1.100 or later.
+- Update dependencies.
 
 ### Fixed
 
@@ -199,7 +205,8 @@ Current stable release. Not planning any major changes.
 
 First release to be published to [crates.io](https://crates.io/).
 
-[unreleased]: https://github.com/0xdea/jiggy/compare/v1.0.9...HEAD
+[unreleased]: https://github.com/0xdea/jiggy/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/0xdea/jiggy/compare/v1.0.9...v2.0.0
 [1.0.9]: https://github.com/0xdea/jiggy/compare/v1.0.8...v1.0.9
 [1.0.8]: https://github.com/0xdea/jiggy/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/0xdea/jiggy/compare/v1.0.6...v1.0.7

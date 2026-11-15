@@ -22,7 +22,7 @@ use spinners::{Spinner, Spinners};
     clippy::exit,
     reason = "the process is terminated by the signal handler"
 )]
-pub fn run(interval: Duration) -> Result<(), Box<dyn error::Error>> {
+pub fn run(interval: Duration) -> Result<!, Box<dyn error::Error>> {
     let mouse = Mouse::new();
     let mut old_position = mouse.get_position()?;
 
