@@ -4,7 +4,7 @@
 [![](https://img.shields.io/crates/v/jiggy?style=flat&color=green)](https://crates.io/crates/jiggy)
 [![](https://img.shields.io/crates/d/jiggy?style=flat&color=red)](https://crates.io/crates/jiggy)
 [![](https://img.shields.io/badge/mastodon-%40raptor-blue.svg)](https://infosec.exchange/@raptor)
-[![build](https://github.com/0xdea/jiggy/actions/workflows/build.yml/badge.svg)](https://github.com/0xdea/jiggy/actions/workflows/build.yml)
+[![build](https://img.shields.io/github/actions/workflow/status/0xdea/jiggy/build.yml?label=build)](https://github.com/0xdea/jiggy/actions/workflows/build.yml)
 [![doc](https://img.shields.io/docsrs/jiggy)](https://docs.rs/jiggy)
 
 > "If I wanted the government in my house I'd buy an Alexa."
